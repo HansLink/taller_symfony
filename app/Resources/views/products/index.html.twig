@@ -6,7 +6,6 @@
             <table class="table" id="myTable">
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Code</th>
                         <th>Name</th>
                         <th>Description</th>
@@ -19,8 +18,7 @@
                 <tbody>
                 {% for product in products %}
                     <tr>
-                        <td><a href="{{ path('products_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
-                        <td>{{ product.code }}</td>
+                        <td><a href="{{ path('products_show', { 'id': product.id }) }}">{{ product.code }}</a></td>
                         <td>{{ product.name }}</td>
                         <td>{{ product.description }}</td>
                         <td>{{ product.brand }}</td>
