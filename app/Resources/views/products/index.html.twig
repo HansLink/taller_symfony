@@ -28,7 +28,7 @@
                         <td>{{ product.price }}</td>
                         <td>
                             <a class="btn btn-default" role="button" href="{{ path('products_edit', { 'id': product.id }) }}">Edit</a>
-                            <a id="delete" class="btn btn-default" role="button" href="{{ path('products_delete', { 'id': product.id }) }}">Delete</a>
+                            <a class="btn btn-default" role="button" onClick="confirmDelete({{product.id}})">Delete</a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -45,4 +45,21 @@
             </ul>
         </div>
     </div>
+    {% block javascripts %} 
+    <script type="text/javascript">
+        function confirmDelete(id) {
+            var url = "/taller_symfony/web/products/"+id+"/delete"
+            $.confirm({
+                title: 'Delete product',
+                content: 'Are you sure of delete this item?',
+                confirm: function(){
+                   window.location.href = url;                      
+                },
+                cancel: function(){
+                    $.alert('Canceled!')
+                }
+            });
+        }
+    </script>
+    {% endblock %}
 {% endblock %}

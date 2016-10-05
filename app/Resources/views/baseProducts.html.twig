@@ -28,16 +28,6 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 $('#myTable').DataTable();
-                $("#delete").confirm({
-                    title: 'Delete product',
-                    content: 'Are you sure of delete this item?',
-                    confirm: function(){
-                        $.alert('Confirmed!');
-                    },
-                    cancel: function(){
-                        $.alert('Canceled!')
-                    }
-                });
             });
         </script>
         {% block javascripts %}            
