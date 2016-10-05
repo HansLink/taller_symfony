@@ -1,0 +1,51 @@
+{% extends 'baseProducts.html.twig' %}
+
+{% block body %}
+    <h1>Products details</h1>
+    </br></br>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 create-content">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ product.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Code</th>
+                        <td>{{ product.code }}</td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ product.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ product.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Brand</th>
+                        <td>{{ product.brand }}</td>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <td>{{ product.category }}</td>
+                    </tr>
+                    <tr>
+                        <th>Price</th>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <ul>
+                <li>
+                    <a href="{{ path('products_index') }}">Back to the list</a>
+                </li>
+                <li>
+                    <a href="{{ path('products_edit', { 'id': product.id }) }}">Edit</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

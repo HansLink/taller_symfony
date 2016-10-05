@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Products{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ asset('../vendor/twbs/bootstrap/dist/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('../bower_components/jquery-confirm2/dist/jquery-confirm.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <style type="text/css">
+            h1 {
+                text-align: center;
+            }
+            .create-content {
+                padding: 1%;
+                border: 1px dotted black;
+                border-radius: 5px;
+            }
+        </style>
+        {% block stylesheets %}             
+        {% endblock %}    
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        <script src="{{ asset('../bower_components/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('../bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('../bower_components/jquery-confirm2/dist/jquery-confirm.min.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#myTable').DataTable();
+                $("#delete").confirm({
+                    title: 'Delete product',
+                    content: 'Are you sure of delete this item?',
+                    confirm: function(){
+                        $.alert('Confirmed!');
+                    },
+                    cancel: function(){
+                        $.alert('Canceled!')
+                    }
+                });
+            });
+        </script>
+        {% block javascripts %}            
+        {% endblock %}
+    </body>
+</html>

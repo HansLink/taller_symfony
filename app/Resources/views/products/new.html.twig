@@ -1,0 +1,23 @@
+{% extends 'baseProducts.html.twig' %}
+{% block body %}
+    <h1>Products creation</h1>
+    </br></br>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 create-content">
+            {{ form_start(form,  { 'attr': {'class': 'form-horizontal'} }) }}
+                {{ form_widget(form) }}
+                </br>
+                <button type="submit" class="btn btn-default">Create</button>
+            {{ form_end(form) }}
+            </br></br>
+            <ul>
+                <li>
+                    <a href="{{ path('products_index') }}">Back to the list</a>
+                </li>
+                <li>
+                    <a href="{{ path('homepage') }}">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
